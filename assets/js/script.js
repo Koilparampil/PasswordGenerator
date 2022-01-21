@@ -43,12 +43,12 @@ function generatePassword(){
   if (SymbolC){
     //add code for password with Symbols
     console.log("They want Symbols")
-   
+    return actualPasswordS(numChar)
   }
   else{
     //Add code for passsword without symbols 
     console.log("They don't want Symbols")
-  
+    return actualPasswordNS(numChar)
   }
 }
 
@@ -68,3 +68,12 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+///copy the password
+function CopythePassword(){
+  var passwordText = document.querySelector("#password");
+  passwordText.select()
+  passwordText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(passwordText.value)
+  alert("Copied the text")
+}
