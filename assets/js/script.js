@@ -41,6 +41,16 @@ function generatePassword(){
     window.alert("You have not entered a Number")
     return
   }
+  //Checking if the Number is too low
+  if(numChar<8){
+    window.alert("Thats not enough Characters :(")
+    return
+  }
+  //Checking if the Number is too High
+  if(numChar>128){
+    window.alert("Thats too many Characters :(")
+    return
+  }
 //Asking if the user wants symbols in their passwords
   SymbolC=window.confirm("Do you want Symbols in your Password?")
   if (SymbolC){
