@@ -1,31 +1,35 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 // Write password to the #password input
 function actualPasswordS(numofPass){
+  //Array with all possible characters and symbols
   CharsS=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
   "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
    "r", "s", "t", "u", "v", "w", "x", "y", "z",'1','2','3','4','5','6','7','8','9','0','!','@','#','$','%','&',
    '*','(',')','[',']',';',',','.','/','`','_','-','=','+','{','}','~','"','|']
+   //empty string to throw password in temporarily
 SymbolPassS=""
+//For as many charactrers as requested, add a random character/symbol from the array above to the string 
 for(var i=0; i<=numofPass; i++){
   SymbolPassS=SymbolPassS+CharsS[Math.floor(Math.random() * CharsS.length) ]
 }
-console.log(SymbolPassS);
 return SymbolPassS;
 }
+
 function actualPasswordNS(numofPass){
+   //Array with all possible characters
   CharsNS=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
   "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
    "r", "s", "t", "u", "v", "w", "x", "y", "z",'1','2','3','4','5','6','7','8','9','0']
+    //empty string to throw password in temporarily
 SymbolPassNS=""
+//For as many charactrers as requested, add a random character from the array above to the string
 for(var i=0; i<=numofPass; i++){
   SymbolPassNS=SymbolPassNS+CharsNS[Math.floor(Math.random() * CharsNS.length) ]
 }
-console.log(SymbolPassNS);
 return SymbolPassNS;
 }
-
-
 
 function generatePassword(){
   //Asking for length of the password
@@ -33,7 +37,6 @@ function generatePassword(){
   //converting to a Number instead of a string
   numChar=parseInt(numChar);
   //Checking if a valid number has been entered
-  console.log(typeof numChar);
   if (isNaN(numChar)){
     window.alert("You have not entered a Number")
     return
@@ -68,6 +71,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
 
 ///copy the password
 function CopythePassword(){
