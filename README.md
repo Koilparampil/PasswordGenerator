@@ -43,6 +43,8 @@ W3schools.com had helped a lot throught his project, Specifically their article 
 
 This is the link: https://www.w3schools.com/jsref/jsref_concat_array.asp
 
+I would like to also thank [kwiniarski97](https://github.com/kwiniarski97)'s Comment on [bendc](https://github.com/bendc)'s Gist [alphabet.js](https://gist.github.com/bendc/1e6af8f2d8027f2965da#file-alphabet-js
+) Saved me a bunch of time from having to type out all the letters for my arrays. This can be found here: https://gist.github.com/bendc/1e6af8f2d8027f2965da#file-alphabet-js
 
 
 ## License
