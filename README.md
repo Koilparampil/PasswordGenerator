@@ -13,20 +13,20 @@ No steps are required for installation, Everything works on the front end and th
 
 ## Usage
 After landing on the page you will be presented with two buttons and a box of text as shown below:
-![this is the alt text](assets\images\initState.png)
+![this is the alt text](assets/images/initState.png)
 
 Click the "Generate Passsword" button and you will be presented with a window Prompt, Like this:
 
-![this is the alt text](assets\images\stage2.png)
+![this is the alt text](assets/images/stage2.png)
 
 Enter the number of characters that you want for a password. The number of characters must be between 8 and 128. then Answer the following window Confirms, as seen Below:
 
 
 
-![this is the alt text](assets\images\Lletters.png)
-![this is the alt text](assets\images\Uletters.png)
-![this is the alt text](assets\images\numbers.png)
-![this is the alt text](assets\images\symbols.png)
+![this is the alt text](assets/images/Lletters.png)
+![this is the alt text](assets/images/Uletters.png)
+![this is the alt text](assets/images/numbers.png)
+![this is the alt text](assets/images/symbols.png)
 
 
 
