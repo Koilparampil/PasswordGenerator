@@ -1,32 +1,16 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var UpperCaseLetters=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V", "W", "X", "Y", "Z"]
+var LowerCaseLetters=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q","r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var Numbers=['1','2','3','4','5','6','7','8','9','0']
+var Symbols=['!','@','#','$','%','&','*','(',')','[',']',';',',','.','/','`','_','-','=','+','{','}','~','"','|']
 
-// Write password to the #password input
-function actualPasswordS(numofPass){
-  //Array with all possible characters and symbols
-  CharsS=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
-  "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
-   "r", "s", "t", "u", "v", "w", "x", "y", "z",'1','2','3','4','5','6','7','8','9','0','!','@','#','$','%','&',
-   '*','(',')','[',']',';',',','.','/','`','_','-','=','+','{','}','~','"','|']
-   //empty string to throw password in temporarily
-SymbolPassS=""
-//For as many charactrers as requested, add a random character/symbol from the array above to the string 
-for(var i=0; i<=numofPass; i++){
-  SymbolPassS=SymbolPassS+CharsS[Math.floor(Math.random() * CharsS.length) ]
-}
-return SymbolPassS;
-}
-
-function actualPasswordNS(numofPass){
-   //Array with all possible characters
-  CharsNS=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
-  "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
-   "r", "s", "t", "u", "v", "w", "x", "y", "z",'1','2','3','4','5','6','7','8','9','0']
-    //empty string to throw password in temporarily
+function actualPassword(numofPass,pool){
+//empty string to throw password in temporarily
 SymbolPassNS=""
 //For as many charactrers as requested, add a random character from the array above to the string
 for(var i=0; i<=numofPass; i++){
-  SymbolPassNS=SymbolPassNS+CharsNS[Math.floor(Math.random() * CharsNS.length) ]
+  SymbolPassNS=SymbolPassNS+pool[Math.floor(Math.random() * pool.length) ]
 }
 return SymbolPassNS;
 }
@@ -51,18 +35,33 @@ function generatePassword(){
     window.alert("Thats too many Characters :(")
     return
   }
-//Asking if the user wants symbols in their passwords
-  SymbolC=window.confirm("Do you want Symbols in your Password?")
-  if (SymbolC){
-    //add code for password with Symbols
-    console.log("They want Symbols")
-    return actualPasswordS(numChar)
-  }
-  else{
-    //Add code for passsword without symbols 
-    console.log("They don't want Symbols")
-    return actualPasswordNS(numChar)
-  }
+poolofChars=[]
+LowerC=window.confirm("Do you want lowercase Letters in your Password?");
+if (LowerC){
+  poolofChars=poolofChars.concat(LowerCaseLetters);
+  console.log(poolofChars);
+}
+UpperC=window.confirm("Do you want uppercase Letters in your Password?");
+if(UpperC){
+  poolofChars=poolofChars.concat(UpperCaseLetters);
+  console.log(poolofChars);
+}
+NumC=window.confirm("Do you want numbers in your Password?");
+if (NumC){
+  poolofChars=poolofChars.concat(Numbers);
+  console.log(poolofChars);
+}
+SymbolC=window.confirm("Do you want Symbols in your Password?");
+if (SymbolC){
+  poolofChars=poolofChars.concat(Symbols);
+  console.log(poolofChars);
+}
+if(!LowerC&&!UpperC&&!NumC&&!SymbolC){
+  window.alert("Dumbass, you cant have a pasword without contents");
+  return;
+}
+ return actualPassword(numChar,poolofChars);
+
 }
 
 
@@ -71,9 +70,12 @@ function generatePassword(){
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  console.log(password);
+  if(password===undefined){
+    passwordText.value="A condition exists that prevents me from making a password for you. Please try again."
+  }else{
   passwordText.value = password;
-
+  }
 }
 
 
