@@ -27,59 +27,64 @@ function generatePassword(){
   }
   //Checking if the Number is too low
   if(numChar<8){
-    window.alert("Thats not enough Characters :(")
+    window.alert("Thats not enough Characters :( \nChoose a length between 8 and 128 characters")
     return
   }
   //Checking if the Number is too High
   if(numChar>128){
-    window.alert("Thats too many Characters :(")
+    window.alert("Thats too many Characters :( \nChoose a length between 8 and 128 characters")
     return
   }
+//this is the array that will contain the characters the user wants in their password
 poolofChars=[]
+
 LowerC=window.confirm("Do you want lowercase Letters in your Password?");
+//checking if the user wants this character type
 if (LowerC){
+  //if yes then adding the chracter type too the pool of characters that will be used to make the password
   poolofChars=poolofChars.concat(LowerCaseLetters);
-  console.log(poolofChars);
+  //console.log(poolofChars);
 }
 UpperC=window.confirm("Do you want uppercase Letters in your Password?");
 if(UpperC){
+  //if yes then adding the chracter type too the pool of characters that will be used to make the password
   poolofChars=poolofChars.concat(UpperCaseLetters);
-  console.log(poolofChars);
+  //console.log(poolofChars);
 }
 NumC=window.confirm("Do you want numbers in your Password?");
 if (NumC){
+  //if yes then adding the chracter type too the pool of characters that will be used to make the password
   poolofChars=poolofChars.concat(Numbers);
-  console.log(poolofChars);
+  //console.log(poolofChars);
 }
 SymbolC=window.confirm("Do you want Symbols in your Password?");
 if (SymbolC){
+  //if yes then adding the chracter type too the pool of characters that will be used to make the password
   poolofChars=poolofChars.concat(Symbols);
-  console.log(poolofChars);
+  //console.log(poolofChars);
 }
+//Validation... if they pick nothing for the character types. this fires and returns an undefined
 if(!LowerC&&!UpperC&&!NumC&&!SymbolC){
-  window.alert("Dumbass, you cant have a pasword without contents");
+  window.alert("You cannot have a pasword without contents");
   return;
 }
  return actualPassword(numChar,poolofChars);
 
 }
 
-
-
-
 function writePassword() {
   var password = generatePassword();
+  //made passwordText the #password object in the html, in this specific case its the textarea
   var passwordText = document.querySelector("#password");
-  console.log(password);
+  //console.log(password);
+  //Validation, if something happened along the way, the password variable would be undefined, so this catches that
   if(password===undefined){
-    passwordText.value="A condition exists that prevents me from making a password for you. Please try again."
+    passwordText.value="A condition exists that prevents me from making a password for you. Please correct the condition and try again."
+  //if nothing bad happens along the way then the text on the page changes to the requested password
   }else{
   passwordText.value = password;
   }
 }
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -88,8 +93,12 @@ generateBtn.addEventListener("click", writePassword);
 ///copy the password
 function CopythePassword(){
   var passwordText = document.querySelector("#password");
+  //select the text
   passwordText.select()
+  //select the text but on phones
   passwordText.setSelectionRange(0, 99999);
+  //takes the selected text and writes it to the computer clipboard
   navigator.clipboard.writeText(passwordText.value)
-  alert("Copied the text")
+  //alert 
+  window.alert("Copied the text")
 }
